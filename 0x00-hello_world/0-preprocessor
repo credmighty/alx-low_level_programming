@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo gcc $CFILE
+sudo gcc $CFILE -o cselect 
