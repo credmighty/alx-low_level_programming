@@ -6,25 +6,17 @@
  */
 int main(void)
 {
-	int n = 1;
-	int e;
-	int f;
+	int d;
 
-	for (e = 0; e <= 9; e++)
+	for (d = 0; d < 100; d++)
 	{
-		for (f = n; f <= 9; f++)
+		putchar((d / 10) + '0');
+		putchar((d % 10) + '0');
+		if (d != 99)
 		{
-			putchar(e + '0');
-			putchar(f + '0');
-
-			if (e == 9 && f == 9)
-				continue;
-			else if (e == 8 && f == 9)
-				continue;
-				putchar(',');
-				putchar(' ');
+			putchar(',');
+			putchar(' ');
 		}
-		n++;
 	}
 	putchar('\n');
 	return (0);
