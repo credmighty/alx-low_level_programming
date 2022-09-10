@@ -2,9 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- *main - Entry point
+ * main - Entry point
  *
- *Return: always 0 (Success)
+ * more header goes there
+ *
+ * bett style doc for function main goes there
+ *
+ * Return: always 0 (Success)
  */
 int main(void)
 {
