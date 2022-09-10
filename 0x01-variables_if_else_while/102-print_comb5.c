@@ -15,7 +15,7 @@ int main(void)
 		{
 			putchar((g1 / 10) + '0');
 			putchar((g1 % 10) + '0');
-			putchar('\n');
+			putchar(' ');
 			putchar((g2 / 10) + '0');
 			putchar((g2 % 10) + '0');
 
@@ -25,5 +25,6 @@ int main(void)
 			putchar(' ');
 		}
 	}
+	putchar('\n');
 	return (0);
 }
