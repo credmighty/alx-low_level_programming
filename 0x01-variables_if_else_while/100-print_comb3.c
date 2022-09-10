@@ -19,7 +19,7 @@ int main(void)
 
 			if (e == 9 && f == 9)
 				continue;
-			else if (f == 8 && f == 9)
+			else if (e == 8 && f == 9)
 				continue;
 				putchar(',');
 				putchar(' ');
