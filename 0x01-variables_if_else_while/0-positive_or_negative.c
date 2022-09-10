@@ -5,7 +5,6 @@
  * main - Entry point
  *
  * more header goes there
- *
  * bett style doc for function main goes there
  *
  * Return: always 0 (Success)
