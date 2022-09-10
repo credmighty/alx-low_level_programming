@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- *main - E
- *
- *Return: Always 0 (Success)
+ * main - E
+ * 
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -21,8 +21,8 @@ int main(void)
 				continue;
 			else if (d1 == 8 && d2 == 9)
 				continue;
-				putchar(',');
-				putchar(' ');
+			putchar(',');
+			putchar(' ');
 		}
 		n++;
 	}
