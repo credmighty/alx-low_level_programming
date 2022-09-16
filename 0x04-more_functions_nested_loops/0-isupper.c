@@ -3,6 +3,7 @@
 /**
  * _isupper - Entry point
  * Desc: fns to test uppercase
+ * @c: the character to test
  * Return: always 0.
  */
 
