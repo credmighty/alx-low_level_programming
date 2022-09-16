@@ -5,6 +5,6 @@
 
 int _putchar(char c)
 void positive_or_negative(int c)
-int print_remaining_days(int, int, int)
+void print_remaining_days(int, int, int)
 
 #endif /* MAIN_H */
