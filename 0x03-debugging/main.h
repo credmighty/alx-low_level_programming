@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 
-int _putchar(char c)
 void positive_or_negative(int c)
 void print_remaining_days(int month, int day, int year)
 int largest_number(int a, int b, int c)
