@@ -1,11 +1,12 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * _issupper - uppercase tester
- *
- * Return: 1 or 0
+ * _isupper - Entry point
+ * Desc: fns to test uppercase
+ * Return: always 0.
  */
-int _issuper(int c)
+
+int _isupper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (1);
