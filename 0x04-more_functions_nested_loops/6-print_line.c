@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * print_most_numbers - number printing
+ * print_line - printing straight lines
  *
+ * @n: number of times
  * Return: no return
  */
-void print_most_numbers(void)
+void print_line(int n)
 {
 	int i, j;
 
