@@ -2,7 +2,7 @@
 
 /**
  * reset_to_98 - code to pass value
- * @n - the pointer parameter to use for the update.
+ * @n: dereferencing pointer parameter to use for the update.
  * Return: No return.
  */
 
