@@ -1,19 +1,31 @@
+#include <stdio.h>
 #include "main.h"
-#include <string.h>
 
 /**
- * _puts2 - fns to print a given string
- * @str: parameter as be passed on the fns
- * Return: string
+ *puts2 - print pair values.
+ *@str: value to be evaluate.
+ *Return: not.
  */
-void _puts2(char *str)
-{
-	int i, len = strlen(str);
 
-	for (i = 0; i <= len - 1; i++)
+void puts2(char *str)
+{
+	int len = 0;
+	int l = 0;
+	char *y = str;
+	int z;
+
+	while (*y != '\0')
 	{
-		if (i % 2 == 0)
-			_putchar(str[i]);
+		y++;
+		len++;
+	}
+	l = len - 1;
+	for (z = 0 ; z <= l ; z++)
+	{
+		if (z % 2 == 0)
+		{
+			_putchar(str[z]);
+		}
 	}
 	_putchar('\n');
 }
