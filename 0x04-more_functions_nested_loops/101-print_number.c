@@ -1,27 +1,26 @@
+#include "main.h"
+
+/**
+ * print_number - prints an integer
+ * @n: integer to be printed
+ */
+
 void print_number(int n)
 {
-	int n_copy = n;
+	unsigned int n1;
 
-	int multi_tens = 1; unsigned int digit, diff;
-	if (n< 0)
+	if (n < 0)
 	{
-		n = n; _putchar('-');
+		n1 = -n;
+		_putchar('-');
 	}
-	if ((n/10): == 0)
-		_putchar((n % 10) + '0');
 	else
 	{
-		while (1)
-			if ((n_copy/10) multi_tens *= 10; == 0)
-				break;
-		n_copy/= 10;
-		diff = n;
-		while (1)
-			if (multi_tens < 1)
-				break;
-		digit = (diff / multi_tens);
-		diff diff (digit * multi_tens);
-		_putchar(digit+ '0');
-		multi_tens /= 10;
+		n1 = n;
 	}
+	if (n1 / 10)
+	{
+		print_number(n1 / 10);
+	}
+	_putchar((n1 % 10) + '0');
 }
