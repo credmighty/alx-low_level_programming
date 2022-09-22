@@ -1,0 +1,7 @@
+To ensure applications portability, especially across natural
+
+       languages, only these functions and the functions in the
+
+       reference pages listed in the SEE ALSO section should be used for
+
+       character classification.
