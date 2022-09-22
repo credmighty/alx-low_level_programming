@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ * desc: the code is to perform magic
+ * Return: always 0
+ */
 int main(void)
 {
 	int n;
