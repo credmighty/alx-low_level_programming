@@ -1,64 +1,50 @@
 /**
-* add - Computes the sum of two numbers
-* @left: The left-sided number
-* @right: The right-sided number
-*
-* Return: Result
-*/
-
-int add(int left, int right)
-{
-	return (left + right);
-}
-
-/**
-* sub - Computes the difference of two numbers
-* @left: The left-sided number
-* @right: The right-sided number
-*
-* Return: Result
-*/
-
-int sub(int left, int right)
-{
-	return (left - right);
-}
-
-/**
- * mul - Computes the product of two numbers
- * @left: The left-sided number
- * @right: The right-sided number
- *
- * Return: Result
+ * add - addition
+ * @a: number
+ * @b: nuber
+ * Return: result
  */
-
-int mul(int left, int right)
+int add(int a, int b)
 {
-	return (left * right);
+      return (a + b);
 }
-
 /**
- * div - Computes the quotient of two numbers
- * @left: The left-sided number
- * @right: The right-sided number
- *
- * Return: Result
+ * sub - addition
+ * @a: number
+ * @b: nuber
+ * Return: result
  */
-
-int div(int left, int right)
+int sub(int a, int b)
 {
-	return (left / right);
+      return (a - b);
 }
-
 /**
- * mod - Computes the modulo of two numbers
- * @left: The left-sided number
- * @right: The right-sided number
- *
- * Return: Result
+ * mul - addition
+ * @a: number
+ * @b: nuber
+ * Return: result
  */
-
-int mod(int left, int right)
+int mul(int a, int b)
 {
-	return (left % right);
+      return (a * b);
+}
+/**
+ * div - addition
+ * @a: number
+ * @b: nuber
+ * Return: result
+ */
+int div(int a, int b)
+{
+      return (a / b);
+}
+/**
+ * mod - addition
+ * @a: number
+ * @b: nuber
+ * Return: result
+ */
+int mod(int a, int b)
+{
+      return (a % b);
 }
