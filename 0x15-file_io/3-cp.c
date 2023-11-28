@@ -47,6 +47,7 @@ void cl_file(int fp)
  * main - main function of cp
  * @argc: parameter that counts the argument
  * @argv: variable argument
+ * Return: 0 on sucess
  */
 int main(int argc, char *argv[])
 {
