@@ -33,14 +33,14 @@ int main(int argc, char *argv[])
 	fr = read(from, buffer, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	fw = write(to, buffer, fr);
-	while (fr > 0)
-	{
+
+	do {
 		if (to == -1 || fw != fr)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 			exit(99);
 		}
-	}
+	} while (fr > 0);
 
 	ff = close(from);
 	ft = close(to);
