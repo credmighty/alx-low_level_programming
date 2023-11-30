@@ -38,8 +38,6 @@ int main(int argc, char *argv[])
 		if (to == -1 || fw != fr)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-			close(from);
-			close(to);
 			exit(99);
 		}
 	}
