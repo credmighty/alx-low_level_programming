@@ -1,87 +1,51 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "main.h"
-#include <fcntl.h>
 #include <unistd.h>
-
-char *_buffer(char *fileN);
-void cl_file(int fp);
-
-/**
- * _buffer - function to allocate memory
- * @fileN: argument passed into the function
- * Return: the memory
- */
-char *_buffer(char *fileN)
-{
-	char *buf;
-
-	buf = malloc(sizeof(char) * 1024);
-
-	if (buf == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileN);
-		exit(99);
-	}
-	return (buf);
-}
+#include <fcntl.h>
+#include <stdlib.h>
 
 /**
- * cl_file - function that closes file descriptions
- * @fp: parameter of the func close
- * Return: void
- */
-void cl_file(int fp)
-{
-	int cl;
-
-	cl = close(fp);
-	if (cl == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp);
-		exit(100);
-	}
-}
-
-/**
- * main - main function of cp
+ * main - Program that copies content from a file to another file
  * @argc: parameter that counts the argument
- * @argv: variable argument
- * Return: 0 on sucess
+ * @argv: argument vector
+ * Return: 0 on success
  */
+
 int main(int argc, char *argv[])
 {
-	int from, to, fw, fr;
-	char *buf_M;
+	int from, to, fr, fw, ff, ft;
+	char *buffer;
+
+	buffer = malloc(sizeof(char *) * 1024);
+	if (buffer == NULL)
+		dprintf(STDOUT_FILENO, "Error: memory is zero\n");
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buf_M = _buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
-	fr = read(from, buf_M, 1024);
-	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (from == -1 || fr == -1)
+	if (from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	fw = write(to, buf_M, fr);
-	while (fr > 0)
+	fr = read(from, buffer, 1024);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	fw = write(to, buffer, fr);
+	if (to == -1 || fw != fr)
 	{
-		if (to == -1 || fw != fr)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-			/*free(buf_M);*/
-		}
-
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		exit(99);
 	}
-	cl_file(from);
-	cl_file(to);
-	/*free(buf_M);*/
 
+	ff = close(from);
+	ft = close(to);
+	if (ff == -1 || ft == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff == -1 ? from : to);
+		exit(100);
+	}
+	free(buffer);
 	return (0);
 }
