@@ -52,8 +52,9 @@ void copy_file(const char *file_from, const char *file_to)
 }
 
 /**
- * close_fd - function to close file
+ * close_fle - function to close file
  * @fd: the file to be closed
+ * No return
  */
 void close_file(int fd)
 {
