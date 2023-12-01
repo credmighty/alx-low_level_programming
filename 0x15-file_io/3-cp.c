@@ -18,24 +18,18 @@ void copy_file(const char *file_from, const char *file_to)
 	ssize_t fr, fw;
 
 	from = open(file_from, O_RDONLY);
-	if (from == -1)
+	fr = read(from, buffer, sizeof(buffer));
+	if (from == -1 || fr == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR |
-			S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND);
 	if (to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_to);
-		close(from);
+		close(to);
 		exit(99);
-	}
-	fr = read(from, buffer, sizeof(buffer));
-	if (fr == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
 	}
 	while (fr > 0)
 	{
