@@ -40,7 +40,7 @@ void copy_file(const char *file_from, const char *file_to)
 	while (fr > 0)
 	{
 		fw = write(to, buffer, fr);
-		if (fw != fr)
+		if (fw == -1 || fw != fr)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_from);
 			exit(99);
