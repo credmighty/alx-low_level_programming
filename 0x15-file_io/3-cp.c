@@ -3,6 +3,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+void close_file(int fd);
+
 /**
  * copy_file - copy content from a file to another
  * @file_from: the file with the content to copy
@@ -13,7 +15,7 @@ void copy_file(const char *file_from, const char *file_to)
 {
 	int from, to;
 	char buffer[1024];
-	ssize_t fr, fw, ff, ft;
+	ssize_t fr, fw;
 
 	from = open(file_from, O_RDONLY);
 	if (from == -1)
@@ -35,8 +37,8 @@ void copy_file(const char *file_from, const char *file_to)
 		if (fw != fr)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_from);
-			close(from);
-			close(to);
+			/*close_file(from);
+			close_file(to);*/
 			exit(99);
 		}
 		if (fr == -1)
@@ -45,10 +47,22 @@ void copy_file(const char *file_from, const char *file_to)
 			exit(98);
 		}
 	}
-	ff = close(from), ft = close(to);
-	if (ff == -1 || ft == -1)
+	close_file(from);
+	close_file(to);
+}
+
+/**
+ * close_fd - function to close file
+ * @fd: the file to be closed
+ */
+void close_file(int fd)
+{
+	int cl;
+
+	cl = close(fd);
+	if (cl == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff == -1 ? from : to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
