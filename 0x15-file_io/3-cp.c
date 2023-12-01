@@ -1,53 +1,68 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
- * main - Program that copies content from a file to another file
- * @argc: parameter that counts the argument
- * @argv: argument vector
- * Return: 0 on success
+ * copy_file - copy content from a file to another
+ * @file_from: the file with the content to copy
+ * @file_to: the destination
+ * Return: file dest file with the content. Exit on any failure
  */
-
-int main(int argc, char *argv[])
+void copy_file(const char *file_from, const char *file_to)
 {
-	int from, to, fr, fw, ff, ft;
-	char *buffer;
+	int from, to;
+	char buffer[1024];
+	ssize_t fr, fw, ff, ft;
 
-	buffer = malloc(sizeof(char *) * 1024);
-	if (buffer == NULL)
-		dprintf(STDOUT_FILENO, "Error: memory is zero\n");
-	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-	from = open(argv[1], O_RDONLY);
+	from = open(file_from, O_RDONLY);
 	if (from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	fr = read(from, buffer, 1024);
-	if (fr == -1)
+	to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR |
+			S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	fw = write(to, buffer, fr);
-	if (to == -1 || fw != fr)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_to);
+		close(from);
 		exit(99);
 	}
+	while ((fr = read(from, buffer, sizeof(buffer))) > 0)
+	{
+		fw = write(to, buffer, fr);
+		if (fw != fr)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			close(from);
+			close(to);
+			exit(99);
+		}
+	}
+
 	ff = close(from), ft = close(to);
 	if (ff == -1 || ft == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff == -1 ? from : to);
 		exit(100);
 	}
-	free(buffer);
+}
+
+/**
+ * main - function
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: ) on success
+ */
+int main(int argc, char *argv[])
+{
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	copy_file(argv[1], argv[2]);
+
 	return (0);
 }
