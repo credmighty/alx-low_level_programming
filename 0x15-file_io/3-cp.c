@@ -31,18 +31,19 @@ void copy_file(const char *file_from, const char *file_to)
 		close(from);
 		exit(99);
 	}
-	while ((fr = read(from, buffer, sizeof(buffer))) > 0)
+	fr = read(from, buffer, sizeof(buffer));
+	if (fr == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}										
+	while (fr > 0)
 	{
 		fw = write(to, buffer, fr);
 		if (fw != fr)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_from);
 			exit(99);
-		}
-		if (fr == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-			exit(98);
 		}
 	}
 	close_file(from);
