@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
 	buffer = malloc(sizeof(char *) * 1024);
 	if (buffer == NULL)
 		dprintf(STDOUT_FILENO, "Error: memory is zero\n");
-
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
@@ -30,15 +29,19 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	fr = read(from, buffer, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	fr = read(from, buffer, 1024);
+	if (fr == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 	fw = write(to, buffer, fr);
 	if (to == -1 || fw != fr)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 		exit(99);
 	}
-
 	ff = close(from);
 	ft = close(to);
 	if (ff == -1 || ft == -1)
