@@ -25,22 +25,26 @@ void copy_file(const char *file_from, const char *file_to)
 			S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_to);
 		close(from);
 		exit(99);
 	}
 	while ((fr = read(from, buffer, sizeof(buffer))) > 0)
 	{
 		fw = write(to, buffer, fr);
-		if (fr == -1 || fw != fr)
+		if (fw != fr)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_from);
 			close(from);
 			close(to);
 			exit(99);
 		}
+		if (fr == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
 	}
-
 	ff = close(from), ft = close(to);
 	if (ff == -1 || ft == -1)
 	{
