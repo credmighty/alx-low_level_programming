@@ -24,8 +24,13 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	from = open(argv[1], O_RDONLY);
+	if (from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 	fr = read(from, buffer, 1024);
-	if (from == -1 || fr == -1)
+	if (fr == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
