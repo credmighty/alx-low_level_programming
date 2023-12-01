@@ -36,7 +36,7 @@ void copy_file(const char *file_from, const char *file_to)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
-	}										
+	}
 	while (fr > 0)
 	{
 		fw = write(to, buffer, fr);
@@ -51,7 +51,7 @@ void copy_file(const char *file_from, const char *file_to)
 }
 
 /**
- * close_fle - function to close file
+ * close_file - function to close file
  * @fd: the file to be closed
  * No return
  */
