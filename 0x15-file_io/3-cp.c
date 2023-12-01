@@ -32,7 +32,7 @@ void copy_file(const char *file_from, const char *file_to)
 	while ((fr = read(from, buffer, sizeof(buffer))) > 0)
 	{
 		fw = write(to, buffer, fr);
-		if (fw != fr)
+		if (fr == -1 || fw != fr)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			close(from);
