@@ -37,8 +37,6 @@ void copy_file(const char *file_from, const char *file_to)
 		if (fw != fr)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_from);
-			close_file(from);
-			close_file(to);
 			exit(99);
 		}
 		if (fr == -1)
