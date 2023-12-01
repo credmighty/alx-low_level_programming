@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
 	if (from == -1 || fr == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		free(buffer);
 		exit(98);
 	}
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -36,14 +35,12 @@ int main(int argc, char *argv[])
 	if (to == -1 || fw != fr)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-		free(buffer);
 		exit(99);
 	}
 	ff = close(from), ft = close(to);
 	if (ff == -1 || ft == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff == -1 ? from : to);
-		free(buffer);
 		exit(100);
 	}
 	free(buffer);
