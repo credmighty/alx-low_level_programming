@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int close_file(int fd);
+void close_file(int fd);
 void copy_file(const char *file_from, const char *file_to);
 
 /**
@@ -47,9 +47,9 @@ void copy_file(const char *file_from, const char *file_to)
 /**
  * close_file - function to close file
  * @fd: the file to be closed
- * Return: the value of the fildes
+ * No return: the value of the fildes
  */
-int close_file(int fd)
+void close_file(int fd)
 {
 	int cl;
 
