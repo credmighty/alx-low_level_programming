@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 void close_file(int fd);
+void copy_file(const char *file_from, const char *file_to);
 
 /**
  * copy_file - copy content from a file to another
@@ -18,27 +19,24 @@ void copy_file(const char *file_from, const char *file_to)
 	ssize_t fr, fw;
 
 	from = open(file_from, O_RDONLY);
+	to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	fr = read(from, buffer, sizeof(buffer));
 	if (from == -1 || fr == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND);
 	if (to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_to);
 		close(to);
 		exit(99);
 	}
-	while (fr > 0)
+	fw = write(to, buffer, fr);
+	if (fw == -1 || fw != fr)
 	{
-		fw = write(to, buffer, fr);
-		if (fw == -1 || fw != fr)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_from);
-			exit(99);
-		}
+		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", file_from);
+		exit(99);
 	}
 	close_file(from);
 	close_file(to);
