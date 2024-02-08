@@ -1,5 +1,11 @@
 #include "hash_tables.h"
 
+/**
+ * hash_table_get - func to get hash table
+ * @ht: table argument
+ * @key: argument for offset
+ * Return: Null on failure node->value on success
+ */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int index;
