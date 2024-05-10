@@ -53,7 +53,7 @@ n * log(n) -> O(nlog(n))
 Tasks
 0. Linear search
 mandatory
-Write a function that searches for a value in an array of integers using the Linear search algorithm
+Write a function that searches for a value in an array of integers using the [Linear search algorithm](https://en.wikipedia.org/wiki/Linear_search)
 
 Prototype : int linear_search(int *array, size_t size, int value);
 Where array is a pointer to the first element of the array to search in
@@ -116,7 +116,7 @@ File: 0-linear.c
  
 1. Binary search
 mandatory
-Write a function that searches for a value in a sorted array of integers using the Binary search algorithm
+Write a function that searches for a value in a sorted array of integers using the [Binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
 Prototype : int binary_search(int *array, size_t size, int value);
 Where array is a pointer to the first element of the array to search in
@@ -235,7 +235,7 @@ File: 6-O
  
 7. Jump search
 #advanced
-Write a function that searches for a value in a sorted array of integers using the Jump search algorithm
+Write a function that searches for a value in a sorted array of integers using the [Jump search algorithm](https://en.wikipedia.org/wiki/Jump_search)
 
 Prototype : int jump_search(int *array, size_t size, int value);
 Where array is a pointer to the first element of the array to search in
@@ -312,7 +312,7 @@ File: 101-O
  
 9. Interpolation search
 #advanced
-Write a function that searches for a value in a sorted array of integers using the Interpolation search algorithm
+Write a function that searches for a value in a sorted array of integers using the [Interpolation search algorithm](https://en.wikipedia.org/wiki/Interpolation_search)
 
 Prototype : int interpolation_search(int *array, size_t size, int value);
 Where array is a pointer to the first element of the array to search in
@@ -364,7 +364,7 @@ File: 102-interpolation.c
  
 10. Exponential search
 #advanced
-Write a function that searches for a value in a sorted array of integers using the Exponential search algorithm
+Write a function that searches for a value in a sorted array of integers using the [Exponential search algorithm](https://en.wikipedia.org/wiki/Exponential_search)
 
 Prototype : int exponential_search(int *array, size_t size, int value);
 Where array is a pointer to the first element of the array to search in
@@ -525,7 +525,7 @@ If value is not present in head or if head is NULL, your function must return NU
 You have to use the square root of the size of the list as the jump step.
 You can use the sqrt() function included in <math.h> (don’t forget to compile with -lm)
 Every time you compare a value in the list to the value you are searching, you have to print this value (see example)
-NOTE: You can find here the functions used in the example. You don’t need to push them, we will compile your file with our own implementation during the correction.
+NOTE: [You can find here](https://github.com/alx-tools/0x1D.c/tree/master/listint) the functions used in the example. You don’t need to push them, we will compile your file with our own implementation during the correction.
 
 wilfried@0x1E-search_algorithms$ cat 105-main.c 
 #include <stdio.h>
@@ -617,7 +617,7 @@ File: 105-jump_list.c
  
 13. Linear search in a skip list
 #advanced
-As you see now, looking for a specific value in a singly linked list always leads to browse every element of the list. A common way to optimize the time complexity of a search in a singly linked list is to modify the list itself by adding an “express lane” to browse it. A linked list with an express lane is called a skip list. This change does not come without consequences. Indeed, the space complexity of a search in this kind of list will grow as sizeof(skiplist_t) > sizeof(listint_t) (see example below).
+As you see now, looking for a specific value in a singly linked list always leads to browse every element of the list. A common way to optimize the time complexity of a search in a singly linked list is to modify the list itself by adding an “express lane” to browse it. A linked list with an express lane is called a [skip list](https://en.wikipedia.org/wiki/Skip_list). This change does not come without consequences. Indeed, the space complexity of a search in this kind of list will grow as sizeof(skiplist_t) > sizeof(listint_t) (see example below).
 
 Please define the following data structure in your search_algos.h header file:
 
@@ -648,7 +648,7 @@ You can assume that list will be sorted in ascending order
 Your function must return a pointer on the first node where value is located
 If value is not present in list or if head is NULL, your function must return NULL
 Every time you compare a value in the list to the value you are searching, you have to print this value (see example below)
-NOTE: You can find here the functions used in the example. You don’t need to push them, we will compile your file with our own implementation during the correction.
+NOTE: [You can find here](https://github.com/alx-tools/0x1D.c/tree/master/skiplist) the functions used in the example. You don’t need to push them, we will compile your file with our own implementation during the correction.
 
 wilfried@0x1E-search_algorithms$ cat 106-main.c 
 #include <stdio.h>
