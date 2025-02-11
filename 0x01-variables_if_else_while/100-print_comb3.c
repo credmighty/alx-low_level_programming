@@ -1,31 +1,27 @@
 #include <stdio.h>
 /**
- * main - Entry point
+ * main - entry point
  *
- * Return: Always 0 (Success)
+ * Return: Always 0(success)
  */
 int main(void)
 {
-	int n = 1;
-	int d1;
-	int d2;
+        int i, n = 1;
+        int j;
 
-	for (d1 = 0; d1 <= 9; d1++)
-	{
-		for (d2 = n; d2 <= 9; d2++)
-		{
-			putchar(d1 + '0');
-			putchar(d2 + '0');
-
-			if (d1 == 9 && d2 == 9)
-				continue;
-			else if (d1 == 8 && d2 == 9)
-				continue;
-			putchar(',');
-			putchar(' ');
-		}
-		n++;
-	}
-	putchar('\n');
-	return (0);
+        for (i = 0; i <= 9; i++)
+        {
+                for (j = n++; j <= 9; j++)
+                {
+                        putchar(i + '0');
+                        putchar(j + '0');
+                        if (i < 8)
+                        {
+                                putchar(',');
+                                putchar(' ');
+                        }
+                }
+        }
+        putchar('\n');
+        return (0);
 }
