@@ -13,19 +13,19 @@ Concepts
 For this project, we expect you to look at these concepts:
 
 Struggling with the sandbox? Try this: Using Docker & WSL on your local host
-[Pointers and arrays](https://docs.google.com/document/d/1fgzEaMWAeU2QSXPSj8u5DtwDIPAELK3ANgdaOm6Zygw/edit?usp=sharing]
-[Data Structures](https://docs.google.com/document/d/1CDCzg_5ed91SFhSE5rq-df7MCBAz6Iw_XQRKGovw6H8/edit?usp=sharing]
+- [Pointers and arrays](https://docs.google.com/document/d/1fgzEaMWAeU2QSXPSj8u5DtwDIPAELK3ANgdaOm6Zygw/edit?usp=sharing]
+- [Data Structures](https://docs.google.com/document/d/1CDCzg_5ed91SFhSE5rq-df7MCBAz6Iw_XQRKGovw6H8/edit?usp=sharing]
 
 
 Resources
 Read or watch:
 
-[C - Arrays](https://www.tutorialspoint.com/cprogramming/c_arrays.htm)
-[C - Pointers](https://www.tutorialspoint.com/cprogramming/c_pointers.htm)
-[C - Strings](https://www.tutorialspoint.com/cprogramming/c_strings.htm)
-[Memory Layout](https://aticleworld.com/memory-layout-of-c-program/)
+- [C - Arrays](https://www.tutorialspoint.com/cprogramming/c_arrays.htm)
+- [C - Pointers](https://www.tutorialspoint.com/cprogramming/c_pointers.htm)
+- [C - Strings](https://www.tutorialspoint.com/cprogramming/c_strings.htm)
+- [Memory Layout](https://aticleworld.com/memory-layout-of-c-program/)
 Additional Resource
-[Arrays & Pointers in C Programming Explained](https://www.youtube.com/watch?feature=shared&v=bT5GTqZaYTk)
+- [Arrays & Pointers in C Programming Explained](https://www.youtube.com/watch?feature=shared&v=bT5GTqZaYTk)
 Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
