@@ -1,11 +1,19 @@
 0x0B. C - malloc, free
 ======================
 
+Concepts
+-----
+For this project, we expect you to look at this concept:
+
+- [Automatic and dynamic allocation, malloc and free](https://docs.google.com/document/d/1xSCVfSc2Kf73OCBoaGStcCfeGB0IakRbrsf4E-WIOdg/edit?usp=sharing)
+```
+
 Resources
 Read or watch:
 
 - [0x0a - malloc & free - quick overview.pdf](https://drive.google.com/file/d/14iWk6wUKtSZbjOwZUzpGsDkFuYvUoRkZ/view?usp=drive_link)
 - [Dynamic memory allocation in C - malloc calloc realloc free (stop at 6:50)](https://www.youtube.com/watch?v=xDVC3wKjS64)
+
 man or help:
 
 malloc
