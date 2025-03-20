@@ -1,3 +1,17 @@
+/** APPROACH
+ *
+ * declare the a new_ptr
+ * if new_size == old_size; return ptr
+ * if (ptr == null), return malloc(new_size)
+ * if new_size == 0 and ptr == null; free(ptr) then return (NUll)
+ * allocate new_ptr memory = malloc(new_size)
+ * to copy the content, declare two new pointer to char for source (src) and
+ * destination (dest) assigned src to ptr(casting) and dest to new_ptr(casting
+ * loop thru src then copy in dest
+ * free ptr then return new_ptr
+ * if new_size > old_size; malloc()
+ */
+
 #include "main.h"
 #include <stdlib.h>
 
@@ -13,36 +27,28 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	unsigned int i;
-	void *new_ptr;
+        void *new_ptr;
+        unsigned int i;
+        char *src, *dest;
 
-	if (new_size == old_size)
-		return (ptr);
-
-	if (ptr == NULL)
-	{
-		new_ptr = malloc(new_size);
-
-		if (new_ptr == NULL)
-			return ('\0');
-
-		return (new_ptr);
-	}
-
-	if (new_size == 0 && ptr)
-	{
-		free(ptr);
-		return ('\0');
-	}
-
-	new_ptr = malloc(new_size);
-
-	if (!new_ptr)
-		return ('\0');
-
-	for (i = 0; i < old_size; i++)
-		*((char *)new_ptr + i) = *((char *)ptr + i);
-
-	free(ptr);
-	return ((void *)new_ptr);
+        if (new_size == old_size)
+                return (ptr);
+        if (ptr == NULL)
+                return malloc(new_size);
+        if (new_size == 0 && ptr == NULL)
+        {
+                free(ptr);
+                return (NULL);
+        }
+        new_ptr = malloc(new_size);
+        if (new_ptr == NULL)
+                return (NULL);
+        src = (char *)ptr;
+        dest = (char *)new_ptr;
+        for (i = 0; i < old_size && i < new_size; i++)
+        {
+                dest[i] = src[i];
+        }
+        free(ptr);
+        return (new_ptr);
 }
