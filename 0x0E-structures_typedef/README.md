@@ -14,6 +14,8 @@ Additional Resource
 - [Structs & Typedef in C Explained](http://www.catb.org/esr/structure-packing/)
 - [Practical use of structs & typedef with coding examples](http://www.catb.org/esr/structure-packing/)
 - [The Lost Art of C Structure Packing (Advanced - not mandatory)](http://www.catb.org/esr/structure-packing/)
+
+
 Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
