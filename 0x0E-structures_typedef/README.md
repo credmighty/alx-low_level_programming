@@ -6,7 +6,7 @@ Read or watch:
 
 - [0x0d. Structures.pdf](https://drive.google.com/file/d/1LlZEvkBd8FLKlMj9966jouIgb5vEpEXs/view?usp=drive_link)
 - [struct (C programming language)](https://en.wikipedia.org/wiki/Struct_(C_programming_language))
-- Documentation: structures](https://github.com/alx-tools/Betty/wiki/Documentation:-Data-structures)
+- [Documentation: structures](https://github.com/alx-tools/Betty/wiki/Documentation:-Data-structures)
 - [0x0d. Typedef and structures.pdf](https://publications.gbdirect.co.uk//c_book/chapter8/typedef.html)
 - [typedef](https://publications.gbdirect.co.uk//c_book/chapter8/typedef.html)
 - Programming in C by Stephen Kochan - Chapter 8, Working with Structures p163-189
