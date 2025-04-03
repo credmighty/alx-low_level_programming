@@ -1,21 +1,18 @@
 0x12. C - Singly linked lists
 =============================
 
-```bash
+
 Concepts
 For this project, we expect you to look at this concept:
 
 - [Data Structures](https://docs.google.com/document/d/1CDCzg_5ed91SFhSE5rq-df7MCBAz6Iw_XQRKGovw6H8/edit?usp=sharing)
-```
 
-```bash
 Resources
 Read or watch:
 
 - [Linked Lists](https://www.youtube.com/watch?v=udapt4FGY20&t=130s)
 - [Google](https://www.google.com/#q=linked+lists)
 - [Youtube](https://www.youtube.com/results?search_query=linked+lists)
-```
 
 More Info
 ---------
