@@ -2,58 +2,51 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/**
-* find_listint_loop_pl - finds a loop in a linked list
-*
-* @head: linked list to search
-*
-* Return: address of node where loop starts/returns, NULL if no loop
-*/
-
-listint_t *find_listint_loop_pl(listint_t *head)
-{
-	listint_t *ptr, *end;
-
-	if (head == NULL)
-		return (NULL);
-
-	for (end = head->next; end != NULL; end = end->next)
-	{
-		if (end == end->next)
-			return (end);
-		for (ptr = head; ptr != end; ptr = ptr->next)
-			if (ptr == end->next)
-				return (end->next);
-	}
-	return (NULL);
-}
 
 /**
-* print_listint_safe - prints a linked list, even if it
-* has a loop
-*
-* @head: head of list to print
-*
-* Return: number of nodes printed
-*/
-
+ * print_listint_safe - Prints a listint_t linked list, even with loops
+ * @head: Pointer to the head of the list
+ * Return: Number of nodes in the list
+ */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t len = 0;
-	int loop;
-	listint_t *loopnode;
+    const listint_t *slow = head;    /*Slow pointer (tortoise)*/
+    const listint_t *fast = head;    /* Fast pointer (hare)*/
+    size_t count = 0;                /* Node counter*/
 
-	loopnode = find_listint_loop_pl((listint_t *) head);
+    /* If list is empty*/
+    if (head == NULL)
+        return (0);
 
-	for (len = 0, loop = 1; (head != loopnode || loop) && head != NULL; len++)
-	{
-		printf("[%p] %d\n", (void *) head, head->n);
-		if (head == loopnode)
-			loop = 0;
-		head = head->next;
-	}
+    /* Traverse list and detect loop*/
+    while (slow != NULL)
+    {
+        /* Print current node*/
+        printf("[%p] %d\n", (void *)slow, slow->n);
+        count++;
 
-	if (loopnode != NULL)
-		printf("-> [%p] %d\n", (void *) head, head->n);
-	return (len);
+        /* Move slow pointer one step*/
+        slow = slow->next;
+
+        /* Move fast pointer two steps (if possible)*/
+        if (fast != NULL && fast->next != NULL)
+            fast = fast->next->next;
+        else
+            fast = NULL;  /* Reached end, no loop*/
+
+        /* Loop detected*/
+        if (slow != NULL && slow == fast)
+        {
+            printf("-> [%p] %d\n", (void *)slow, slow->n);
+            return (count);
+        }
+
+        /* Check for invalid memory access*/
+        if (count > 1000000)  /* Arbitrary large limit to detect failure*/
+        {
+            exit(98);
+        }
+    }
+
+    return (count);
 }
